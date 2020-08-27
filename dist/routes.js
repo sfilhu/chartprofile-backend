@@ -35,36 +35,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.down = exports.up = void 0;
-function up(knex) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, knex.schema.createTable('users', function (user) {
-                    user.increments('id').primary();
-                    user.string('name', 50).notNullable();
-                    user.string('checkIn', 50).notNullable();
-                    user.string('cel', 50).notNullable();
-                    user.string('birthday', 50).notNullable();
-                    user.string('age', 3).notNullable();
-                    user.string('email', 50).notNullable();
-                    user.string('neighborhood', 50).notNullable();
-                    user.string('genero', 50).notNullable();
-                    user.string('toknow', 50).notNullable();
-                    user.string('registered', 50).notNullable();
-                    user.string('which', 50).notNullable();
-                    user.string('activity', 50).notNullable();
-                    user.string('whichActivity', 50).notNullable();
-                })];
-        });
+var express_1 = __importDefault(require("express"));
+var routes = express_1.default.Router();
+routes.get("/", function (request, response) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        return [2 /*return*/, response.json({ status: 200, msg: 'Deu tudo certo no deploy!' })];
     });
-}
-exports.up = up;
-function down(knex) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, knex.schema.dropTable('users')];
-        });
-    });
-}
-exports.down = down;
+}); });
+exports.default = routes;
