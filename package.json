@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/main.js",
+    "start": "node dist/main.js",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
