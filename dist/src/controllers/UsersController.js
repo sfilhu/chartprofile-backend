@@ -57,19 +57,22 @@ var Users = /** @class */ (function () {
                         currentMonth = date.getMonth() + 1;
                         currentDay = date.getDate();
                         request.body.create_at = "" + date.toISOString();
-                        if (currentMonth > birthday.split('-')[1]) {
-                            request.body.age = "" + (date.getFullYear() - birthday.split('-')[0]);
-                        }
-                        else if (currentMonth == birthday.split('-')[1]) {
-                            if (currentDay >= birthday.split('-')[2]) {
+                        console.log(request.body.create_at);
+                        if (birthday != '') {
+                            if (currentMonth > birthday.split('-')[1]) {
                                 request.body.age = "" + (date.getFullYear() - birthday.split('-')[0]);
+                            }
+                            else if (currentMonth == birthday.split('-')[1]) {
+                                if (currentDay >= birthday.split('-')[2]) {
+                                    request.body.age = "" + (date.getFullYear() - birthday.split('-')[0]);
+                                }
+                                else {
+                                    request.body.age = "" + ((date.getFullYear() - birthday.split('-')[0]) - 1);
+                                }
                             }
                             else {
                                 request.body.age = "" + ((date.getFullYear() - birthday.split('-')[0]) - 1);
                             }
-                        }
-                        else {
-                            request.body.age = "" + ((date.getFullYear() - birthday.split('-')[0]) - 1);
                         }
                         return [4 /*yield*/, connection_1.default.transaction()];
                     case 2:
@@ -88,9 +91,7 @@ var Users = /** @class */ (function () {
                         return [4 /*yield*/, trx.commit()];
                     case 7:
                         _b.sent();
-                        return [2 /*return*/, response.status(200).json({ status: 200, msg: 'Cadastro realizado com sucesso!' })
-                            // return response.status(200).json({data: request.body})
-                        ];
+                        return [2 /*return*/, response.status(200).json({ status: 200, msg: 'Cadastro realizado com sucesso!' })];
                 }
             });
         });

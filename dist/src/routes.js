@@ -50,4 +50,18 @@ routes.get("/", function (request, response) { return __awaiter(void 0, void 0, 
 }); });
 routes.get('/users', user.list);
 routes.post('/create', user.create);
+// routes.post('/create', (request, response) => {
+//   ( async () => {
+//     // await knex('users').insert(request.body);
+//     // return response.status(200).json({
+//     //   msg: 'Cadastrado realizado com sucesso!',
+//     // })
+//    })().catch( err => {
+//     setImmediate(() => {
+//       response.status(500);
+//       console.log(err);
+//       return response.send('Error: ' + err.message);
+//     })
+//    })
+// })
 exports.default = routes;

@@ -2,12 +2,12 @@ import Knex from 'knex';
 
 export async function seed(knex: Knex) {
   await knex('users').insert({
-    "name": "Admin",
+    "name": "Juca",
     "create_at": "",
     "cel": "(88) 88888-8888",
     "birthday": "",
-    "age": "34",
-    "email": "admin@admin.com",
+    "age": "17",
+    "email": "sergio@hot.com",
     "neighborhood": "iputinga",
     "genero": "masculino",
     "toknow": "indicação",
