@@ -41,7 +41,7 @@ class Users {
   }
 
   async list(request: Request, response: Response) {
-    const allUsers = await knex.select('users.*');
+    const allUsers = await knex('users').select('*');
     return response.json(allUsers);
   }
 }

@@ -101,7 +101,7 @@ var Users = /** @class */ (function () {
             var allUsers;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, connection_1.default.select('users.*')];
+                    case 0: return [4 /*yield*/, connection_1.default('users').select('*')];
                     case 1:
                         allUsers = _a.sent();
                         return [2 /*return*/, response.json(allUsers)];
