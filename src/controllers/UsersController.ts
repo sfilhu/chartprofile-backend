@@ -3,8 +3,6 @@ import knex from '../database/connection';
 
 class Users {
   async create( request:Request, response: Response ) {
-    
-    console.log(request.body)
     const { email, birthday }  = await request.body
     const date = new Date();
     const currentMonth = date.getMonth() + 1;
@@ -37,7 +35,7 @@ class Users {
     await trx('users').insert(request.body)
     await trx.commit()
     return response.status(200).json({status: 200, msg: 'Cadastro realizado com sucesso!'})
-    return response.status(200).json({data: request.body})
+    // return response.status(200).json({data: request.body})
   }
 
   async list(request: Request, response: Response) {

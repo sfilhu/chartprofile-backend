@@ -48,9 +48,7 @@ var Users = /** @class */ (function () {
             var _a, email, birthday, date, currentMonth, currentDay, trx, emailExist;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0:
-                        console.log(request.body);
-                        return [4 /*yield*/, request.body];
+                    case 0: return [4 /*yield*/, request.body];
                     case 1:
                         _a = _b.sent(), email = _a.email, birthday = _a.birthday;
                         date = new Date();
@@ -91,7 +89,9 @@ var Users = /** @class */ (function () {
                         return [4 /*yield*/, trx.commit()];
                     case 7:
                         _b.sent();
-                        return [2 /*return*/, response.status(200).json({ status: 200, msg: 'Cadastro realizado com sucesso!' })];
+                        return [2 /*return*/, response.status(200).json({ status: 200, msg: 'Cadastro realizado com sucesso!' })
+                            // return response.status(200).json({data: request.body})
+                        ];
                 }
             });
         });
