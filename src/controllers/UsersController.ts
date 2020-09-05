@@ -42,6 +42,21 @@ class Users {
     const allUsers = await knex('users').select('*');
     return response.json(allUsers);
   }
+
+  async  filter( request:Request, response: Response ) {
+    const { data_inicio, data_final } = request.body;
+
+    const users = await knex('users').where('checkIn', '>=', data_inicio)
+    .where('checkIn', '<', data_final)
+
+    return response.json(users);
+  }
+
+  async delete( request:Request, response: Response ) {
+    const { id } = request.params
+    await knex('users').where('id', `${id}`).del();
+    return response.status(200).json({status: 200, msg: 'Deletado com sucesso!'})
+  }
 }
 
 export default Users;

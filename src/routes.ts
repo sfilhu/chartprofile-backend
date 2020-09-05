@@ -11,6 +11,8 @@ routes.get("/", async (request, response) => {
 
 routes.get('/users', user.list)
 routes.post('/create', user.create)
+routes.post('/filterRegister', user.filter)
+routes.post('/delete', user.delete)
 // routes.post('/create', (request, response) => {
 //   ( async () => {
 //     // await knex('users').insert(request.body);
