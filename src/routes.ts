@@ -9,24 +9,9 @@ routes.get("/", async (request, response) => {
   return response.json({ status: 200, msg: 'Deu tudo certo no deploy!' })
 });
 
-routes.get('/users', user.list)
-routes.post('/create', user.create)
-routes.post('/filterRegister', user.filter)
-routes.post('/delete', user.delete)
-// routes.post('/create', (request, response) => {
-//   ( async () => {
-//     // await knex('users').insert(request.body);
-
-//     // return response.status(200).json({
-//     //   msg: 'Cadastrado realizado com sucesso!',
-//     // })
-//    })().catch( err => {
-//     setImmediate(() => {
-//       response.status(500);
-//       console.log(err);
-//       return response.send('Error: ' + err.message);
-//     })
-//    })
-// })
+routes.get('/users', user.list);
+routes.post('/create', user.create);
+routes.post('/filterRegister', user.filter);
+routes.delete('/delete/:id', user.delete);
 
 export default routes;

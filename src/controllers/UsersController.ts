@@ -21,6 +21,8 @@ class Users {
         }
       } else {
         request.body.age =`${(date.getFullYear() - birthday.split('-')[0]) - 1}`;
+        console.log(request.body.age);
+        
       }
     }
 
@@ -46,8 +48,8 @@ class Users {
   async  filter( request:Request, response: Response ) {
     const { data_inicio, data_final } = request.body;
 
-    const users = await knex('users').where('checkIn', '>=', data_inicio)
-    .where('checkIn', '<', data_final)
+    const users = await knex('users').where('create_at', '>=', data_inicio)
+    .where('create_at', '<', data_final)
 
     return response.json(users);
   }
